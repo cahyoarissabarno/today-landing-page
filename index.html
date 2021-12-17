@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="./logo.png" type="image/x-icon">
+
+        <!-- Bootstrap CSS -->
+        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css"> -->
+
+        <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./fontawesome/css/fontawesome.css">
+        <script src="./bootstrap/js/bootstrap.bundle.min.js" ></script>
+        <title>Today</title>
+    </head>
+    <style>
+        .divider {
+            width: 100%; 
+            text-align: center; 
+            border-bottom: 3px solid #d0d7de; 
+            line-height: 3px;
+        } 
+
+        .divider span { 
+            background:#fff; 
+        }
+        select {
+            background: transparent; 
+            border: none; 
+            outline: none;
+        }
+        .numberCircle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid #acb9c5;
+            color:white;
+            background:#dfe6ed;
+            position: absolute;
+            top: -20px;
+            left: 95%;
+            transform: translateX(-50%)
+        }
+        .card-body{
+            position:relative; 
+        }
+    </style>
+    <body>
+        <div class="container-fluid">
+
+            <!---------------------------------------------------  START NAVIGATION ------------------------------------------------------->
+
+            <div class="row row-cols-2 mt-2 px-3" style="font-size: 2vh;">
+                <div class="col-md-11 col-10 d-flex justify-content-end">
+                    <span class="mx-1">order</span>
+                    <span class="mx-1">status</span>
+                    <span class="mx-1">help</span>
+                    <span class="mx-1">ubah</span>
+                    <span class="mx-1">bahasa</span>
+                </div>
+                <div class="col-md-1 col-2 d-flex justify-content-end">
+                    <span>login</span>
+                </div>
+            </div>
+            <nav class="navbar navbar-expand-md navbar-light fixed-top position-relative">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="./assets/logo.png" width="200" class="px-4 pb-3 px-md-3 d-md-inline d-none">
+                        <img src="./assets/logo.png" width="100" class="d-md-none d-inline">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                            <li class="nav-item">
+                                <a class="nav-link text-muted px-2" aria-current="page" href="#"><u><b><h4>MEN</h4></b></u></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-muted px-2" aria-current="page" href="#"><u><b><h4>WOMEN</h4></b></u></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-muted px-2" aria-current="page" href="#"><u><b><h4>KIDS</h4></b></u></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-muted px-2" aria-current="page" href="#"><u><b><h4>BRAND</h4></b></u></a>
+                            </li>
+                        </ul>
+                        <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        </form>
+                    </div>
+                </div>
+            </nav>
+            <div class="row" style="background: #c3cfd9; border-top: 2px solid gray; border-bottom: 2px solid gray;">
+                <div class="col text-center">
+                    <span class="fs-6 d-md-none d-inline-block"><i class="fa fa-truck" aria-hidden="true"></i><span class="px-2">FREE DELIVERY</span></span>
+                    <span class="fs-5 d-md-inline-block d-none"><i class="fa fa-truck" aria-hidden="true"></i><span class="px-2">FREE DELIVERY</span></span>
+                </div>
+                <div class="col text-center">
+                    <span class="fs-6 d-md-none d-inline-block"><i class="fa fa-envelope" aria-hidden="true"></i><span class="px-2">CHAT WITH US</span></span>
+                    <span class="fs-5 d-md-inline-block d-none"><i class="fa fa-envelope" aria-hidden="true"></i><span class="px-2">CHAT WITH US</span></span>
+                </div>
+            </div>
+            <div class="row mt-3 py-3" style="background-color: #8dd7cf;">
+                <div class="col-4 text-center fs-6 d-md-none d-inline-block"> <select> <option selected>PRICE</option> </select> </div>
+                <div class="col-4 text-center fs-5 d-md-inline-block d-none"> <select> <option selected>PRICE</option> </select> </div>
+
+                <div class="col-4 text-center fs-6 d-md-none d-inline-block"> <select> <option selected>GENDER</option> </select> </div>
+                <div class="col-4 text-center fs-5 d-md-inline-block d-none"> <select> <option selected>GENDER</option> </select> </div>
+
+                <div class="col-4 text-center fs-6 d-md-none d-inline-block"> <select> <option selected>SIZE</option> </select> </div>
+                <div class="col-4 text-center fs-5 d-md-inline-block d-none"> <select> <option selected>SIZE</option> </select> </div>
+            </div>
+
+            <!---------------------------------------------------  END NAVIGATION ------------------------------------------------------->
+
+            <!---------------------------------------------------  START SLIDER 1 ------------------------------------------------------->
+
+            <div id="carouselSection1" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner pt-4">
+                    <div class="carousel-item active">
+                        <div class="row row-cols-lg-4 row-cols-sm-2 row-cols-1">
+                            <div class="col">
+                                <div class="card m-3 border-0">
+                                    <img src="./assets/w1.jpeg" class="card-img-top" alt="...">
+                                    <div class="numberCircle d-flex align-items-center justify-content-center text-danger"><b>60%</b></div>
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                        Women's T-Shirt <br>
+                                        FLEUR LOGO SS T-SHIRT WSt <br>
+                                        Rp889,000<br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card m-3 border-0">
+                                    <img src="./assets/w1.jpeg" class="card-img-top" alt="...">
+                                    <div class="numberCircle d-flex align-items-center justify-content-center text-danger"><b>60%</b></div>
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                        Women's T-Shirt <br>
+                                        FLEUR LOGO SS T-SHIRT WSt <br>
+                                        Rp889,000<br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card m-3 border-0">
+                                    <img src="./assets/w1.jpeg" class="card-img-top" alt="...">
+                                    <div class="numberCircle d-flex align-items-center justify-content-center text-danger"><b>60%</b></div>
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                        Women's T-Shirt <br>
+                                        FLEUR LOGO SS T-SHIRT WSt <br>
+                                        Rp889,000<br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card m-3 border-0">
+                                    <img src="./assets/w1.jpeg" class="card-img-top" alt="...">
+                                    <div class="numberCircle d-flex align-items-center justify-content-center text-danger"><b>60%</b></div>
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                        Women's T-Shirt <br>
+                                        FLEUR LOGO SS T-SHIRT WSt <br>
+                                        Rp889,000<br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row row-cols-lg-4 row-cols-sm-2 row-cols-1">
+                            <div class="col">
+                                <div class="card m-3 border-0">
+                                    <img src="./assets/w1.jpeg" class="card-img-top" alt="...">
+                                    <div class="numberCircle d-flex align-items-center justify-content-center text-danger"><b>60%</b></div>
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                        Women's T-Shirt <br>
+                                        FLEUR LOGO SS T-SHIRT WSt <br>
+                                        Rp889,000<br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card m-3 border-0">
+                                    <img src="./assets/w1.jpeg" class="card-img-top" alt="...">
+                                    <div class="numberCircle d-flex align-items-center justify-content-center text-danger"><b>60%</b></div>
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                        Women's T-Shirt <br>
+                                        FLEUR LOGO SS T-SHIRT WSt <br>
+                                        Rp889,000<br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card m-3 border-0">
+                                    <img src="./assets/w1.jpeg" class="card-img-top" alt="...">
+                                    <div class="numberCircle d-flex align-items-center justify-content-center text-danger"><b>60%</b></div>
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                        Women's T-Shirt <br>
+                                        FLEUR LOGO SS T-SHIRT WSt <br>
+                                        Rp889,000<br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card m-3 border-0">
+                                    <img src="./assets/w1.jpeg" class="card-img-top" alt="...">
+                                    <div class="numberCircle d-flex align-items-center justify-content-center text-danger"><b>60%</b></div>
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                        Women's T-Shirt <br>
+                                        FLEUR LOGO SS T-SHIRT WSt <br>
+                                        Rp889,000<br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carousel-indicators position-relative">
+                <button class="carousel-control-prev position-relative" type="button" data-bs-target="#carouselSection1" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(100%);"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button type="button" data-bs-target="#carouselSection1" data-bs-slide-to="0" aria-current="true" aria-label="Slide 1" style="filter: invert(100%);"></button>
+                <button type="button" data-bs-target="#carouselSection1" data-bs-slide-to="1" aria-label="Slide 2" style="filter: invert(100%);"></button>
+                <button type="button" data-bs-target="#carouselSection1" data-bs-slide-to="2" aria-label="Slide 3" style="filter: invert(100%);"></button>
+                <button class="carousel-control-next position-relative" type="button" data-bs-target="#carouselSection1" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(100%);"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            
+            <!---------------------------------------------------  END SLIDER 1 ------------------------------------------------------->
+
+            <!---------------------------------------------------  START SLIDER 2 ------------------------------------------------------->
+
+            <div class="row row-cols-md-2 row-cols-1 my-5 px-3">
+                <div class="col p-0">
+                    <div id="carouselManSection" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="./assets/man.jpeg" class="d-block w-100">
+                                <div class="carousel-caption" style="bottom: 10px;">
+                                    <button class="btn d-lg-inline d-none text-white" style="background: #1aae9f;"><b>Shop Now</b></button>
+                                    <button class="btn btn-sm d-lg-none d-inline text-white" style="padding: 0px 10px !important; background: #1aae9f;">
+                                        <small><b>Shop Now</b></small>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./assets/man.jpeg" class="d-block w-100">
+                                <div class="carousel-caption" style="bottom: 10px;">
+                                    <button class="btn d-lg-inline d-none text-white" style="background: #1aae9f;"><b>Shop Now</b></button>
+                                    <button class="btn btn-sm d-lg-none d-inline text-white" style="padding: 0px 10px !important; background: #1aae9f;">
+                                        <small><b>Shop Now</b></small>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselManSection" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselManSection" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col p-0">
+                    <div id="carouselWomanSection" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="./assets/woman.jpeg" class="d-block w-100" alt="...">
+                                <div class="carousel-caption" style="bottom: 10px;">
+                                    <button class="btn d-lg-inline d-none text-white" style="background: #1aae9f;"><b>Shop Now</b></button>
+                                    <button class="btn btn-sm d-lg-none d-inline text-white" style="padding: 0px 10px !important; background: #1aae9f;">
+                                        <small><b>Shop Now</b></small>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./assets/woman.jpeg" class="d-block w-100" alt="...">
+                                <div class="carousel-caption" style="bottom: 10px;">
+                                    <button class="btn d-lg-inline d-none text-white" style="background: #1aae9f;"><b>Shop Now</b></button>
+                                    <button class="btn btn-sm d-lg-none d-inline text-white" style="padding: 0px 10px !important; background: #1aae9f;">
+                                        <small><b>Shop Now</b></small>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselWomanSection" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselWomanSection" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!---------------------------------------------------  END SLIDER 2 ------------------------------------------------------->
+
+            <div id="carouselSale" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators" style="bottom: -10px;">
+                    <button class="btn btn-success d-lg-block d-none"><b>Shop Now</b></button>
+                    <button class="btn btn-success btn-sm d-lg-none d-block" style="padding: 0px 10px !important;"><b>Shop Now</b></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="./assets/sale.png" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselSale" data-bs-slide="prev">
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselSale" data-bs-slide="next">
+                <span class="visually-hidden">Next</span>
+            </button>
+
+            <!---------------------------------------------------  START KATALOG ------------------------------------------------------->
+
+            <div class="container mt-5 px-5"><div class="divider h2"><span class="text-secondary px-md-5 px-4">KATALOG</span></div></div>
+
+            <div id="carouselKatalog" class="carousel slide mt-5" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row row-cols-lg-3 row-cols-sm-2 row-cols-1">
+                            <div class="col">
+                                <div class="card m-3 border-0">
+                                    <img src="./assets/man2.jpeg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                        Women's T-Shirt <br>
+                                        FLEUR LOGO SS T-SHIRT WSt <br>
+                                        Rp889,000<br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card m-3 border-0">
+                                    <img src="./assets/w1.jpeg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                        Women's T-Shirt <br>
+                                        FLEUR LOGO SS T-SHIRT WSt <br>
+                                        Rp889,000<br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card m-3 border-0">
+                                    <img src="./assets/man2.jpeg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                        Women's T-Shirt <br>
+                                        FLEUR LOGO SS T-SHIRT WSt <br>
+                                        Rp889,000<br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card m-3 border-0">
+                                    <img src="./assets/w1.jpeg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                        Women's T-Shirt <br>
+                                        FLEUR LOGO SS T-SHIRT WSt <br>
+                                        Rp889,000<br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card m-3 border-0">
+                                    <img src="./assets/man2.jpeg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                        Women's T-Shirt <br>
+                                        FLEUR LOGO SS T-SHIRT WSt <br>
+                                        Rp889,000<br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card m-3 border-0">
+                                    <img src="./assets/w1.jpeg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                        Women's T-Shirt <br>
+                                        FLEUR LOGO SS T-SHIRT WSt <br>
+                                        Rp889,000<br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card m-3 border-0">
+                                    <img src="./assets/man2.jpeg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                        Women's T-Shirt <br>
+                                        FLEUR LOGO SS T-SHIRT WSt <br>
+                                        Rp889,000<br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card m-3 border-0">
+                                    <img src="./assets/w1.jpeg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                        Women's T-Shirt <br>
+                                        FLEUR LOGO SS T-SHIRT WSt <br>
+                                        Rp889,000<br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card m-3 border-0">
+                                    <img src="./assets/man2.jpeg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                        Women's T-Shirt <br>
+                                        FLEUR LOGO SS T-SHIRT WSt <br>
+                                        Rp889,000<br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row row-cols-lg-3 row-cols-sm-2 row-cols-1">
+                            <div class="col">
+                                <div class="card m-3 border-0">
+                                    <img src="./assets/man2.jpeg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                        Women's T-Shirt <br>
+                                        FLEUR LOGO SS T-SHIRT WSt <br>
+                                        Rp889,000<br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card m-3 border-0">
+                                    <img src="./assets/w1.jpeg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                        Women's T-Shirt <br>
+                                        FLEUR LOGO SS T-SHIRT WSt <br>
+                                        Rp889,000<br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card m-3 border-0">
+                                    <img src="./assets/man2.jpeg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                        Women's T-Shirt <br>
+                                        FLEUR LOGO SS T-SHIRT WSt <br>
+                                        Rp889,000<br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card m-3 border-0">
+                                    <img src="./assets/w1.jpeg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                        Women's T-Shirt <br>
+                                        FLEUR LOGO SS T-SHIRT WSt <br>
+                                        Rp889,000<br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card m-3 border-0">
+                                    <img src="./assets/man2.jpeg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                        Women's T-Shirt <br>
+                                        FLEUR LOGO SS T-SHIRT WSt <br>
+                                        Rp889,000<br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card m-3 border-0">
+                                    <img src="./assets/w1.jpeg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                        Women's T-Shirt <br>
+                                        FLEUR LOGO SS T-SHIRT WSt <br>
+                                        Rp889,000<br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card m-3 border-0">
+                                    <img src="./assets/man2.jpeg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                        Women's T-Shirt <br>
+                                        FLEUR LOGO SS T-SHIRT WSt <br>
+                                        Rp889,000<br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card m-3 border-0">
+                                    <img src="./assets/w1.jpeg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                        Women's T-Shirt <br>
+                                        FLEUR LOGO SS T-SHIRT WSt <br>
+                                        Rp889,000<br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card m-3 border-0">
+                                    <img src="./assets/man2.jpeg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <p class="card-text text-center">
+                                        Women's T-Shirt <br>
+                                        FLEUR LOGO SS T-SHIRT WSt <br>
+                                        Rp889,000<br>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carousel-indicators position-relative">
+                <button class="carousel-control-prev position-relative" type="button" data-bs-target="#carouselKatalog" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(100%);"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button type="button" data-bs-target="#carouselKatalog" data-bs-slide-to="0" aria-current="true" aria-label="Slide 1" style="filter: invert(100%);"></button>
+                <button type="button" data-bs-target="#carouselKatalog" data-bs-slide-to="1" aria-label="Slide 2" style="filter: invert(100%);"></button>
+                <button type="button" data-bs-target="#carouselKatalog" data-bs-slide-to="2" aria-label="Slide 3" style="filter: invert(100%);"></button>
+                <button class="carousel-control-next position-relative" type="button" data-bs-target="#carouselKatalog" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(100%);"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+            <!---------------------------------------------------  END KATALOG ------------------------------------------------------->
+
+
+            <!---------------------------------------------------  START VISUAL STORY  ------------------------------------------------------->
+
+            <div class="container mt-5 px-5"><div class="divider h2"><span class="text-secondary px-md-5 px-4">VISUAL STORY</span></div></div>
+            <div class="container mt-5 text-center">
+                <!-- <img src="./assets/video.png" class="img-fluid"> -->
+                <video controls class="img-fluid">
+                    <source src="./assets/video.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <!---------------------------------------------------  END VISUAL STORY  ------------------------------------------------------->
+
+            <!---------------------------------------------------  START BANK LIST  ------------------------------------------------------->
+
+            <div class="container mt-5 px-5"><div class="divider h2"></div></div>
+            <div class="container pt-3">
+                <div class="row row-cols-md-4 row-cols-2 text-center px-5">
+                    <div class="col"><img src="./assets/bni.png" class="p-4 mt-3 shadow-sm rounded-3"></div>
+                    <div class="col"><img src="./assets/bca.png" class="p-4 mt-3 shadow-sm rounded-3"></div>
+                    <div class="col"><img src="./assets/mandiri.png" class="p-4 mt-3 shadow-sm rounded-3"></div>
+                    <div class="col"><img src="./assets/permata.png" class="p-4 mt-3 shadow-sm rounded-3"></div>
+                </div>
+            </div>
+
+            <!---------------------------------------------------  END BANK LIST  ------------------------------------------------------->
+        </div>
+
+        <!---------------------------------------------------  START FOOTER  ------------------------------------------------------->
+
+        <div class="container-fluid px-md-5 py-4 mt-5" style="background: #8dd7cf; border-top: 3px solid #47beb2;">
+            <div class="row row-cols-md-4 row-cols-1 px-4">
+                <div class="col py-2">
+                    <h4>Bantuan</h3>
+                    <span class="fs-6">Contact us</span> <br>
+                    <span class="fs-6">Cara Pemesanan</span> <br>
+                    <span class="fs-6">Syarat dan Ketentuan</span>
+                </div>
+                <div class="col py-2">
+                    <h4>Hubungi Kami</h3>
+                    <span class="fs-6">CostumerCare@today.com</span> <br>
+                    <span class="fs-6">082345729</span>
+                </div>
+                <div class="col py-2">
+                    <h4>Perusahaan Kami</h3>
+                    <span class="fs-6">JL.komputer madiun</span> <br>
+                    <span class="fs-6">Tentang Kami</span> <br>
+                    <span class="fs-6">Carrirer</span>
+                </div>
+                <div class="col d-flex align-items-end">
+                    <input class="form-control me-2" type="email" placeholder="Your Email">
+                </div>
+            </div>
+            <div class="row row-cols-2 px-4 mt-5">
+                <div class="col-1">
+                    <img src="./assets/logo.png" width="90">
+                </div>
+                <div class="col-md-11 col-12 px-md-5 pt-md-0 pt-3">
+                    <span class="fw-bold" style="font-size: 10px ">Ⓒ TODAY, A VF COMPANYCA SUPPLY CHAINS ACT UK SLAVERY <br>
+                    ACTPRIVACY POLICY TERMS OF USE ACCESSIBILITY STATEMENT</span>
+                </div>
+            </div>
+        </div>
+
+        <!---------------------------------------------------  END FOOTER  ------------------------------------------------------->
+
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
+    </body>
+</html>
